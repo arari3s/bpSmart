@@ -35,6 +35,7 @@
                         </div>
                     </div>
                 @endif
+
                 <form action="{{ route('dashboard.student-classroom.student-payment.store', $studentClassroom->id) }}"
                     class="w-full" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -180,12 +181,11 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <button type="submit"
-                                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">Add
-                                Pembayaran</button>
+                                class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">Simpan</button>
 
                             <a href="{{ route('dashboard.student-classroom.student-payment.index', $studentClassroom->id) }}"
-                                class="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
-                                Cancel
+                                class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
+                                Batal
                             </a>
                         </div>
                     </div>

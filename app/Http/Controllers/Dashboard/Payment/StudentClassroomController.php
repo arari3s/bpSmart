@@ -25,12 +25,12 @@ class StudentClassroomController extends Controller
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
-                        <a class="inline-block border border-teal-700-700 bg-teal-700 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-teal-800 focus:outline-none focus:shadow-outline"
+                        <a class="inline-block border border-teal-500 bg-teal-500 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-teal-800 focus:outline-none focus:shadow-outline"
                             href="' . route('dashboard.student-classroom.student-payment.index', $item->id) . '">
-                            Input Pembayaran
+                            Tambah Pembayaran
                         </a>
                         <form class="inline-block" action="' . route('dashboard.student-classroom.destroy', $item->id) . '" method="POST">
-                            <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline" >
+                            <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-red-800 focus:outline-none focus:shadow-outline" >
                                 Hapus
                             </button>
                             ' . method_field('delete') . csrf_field() . '

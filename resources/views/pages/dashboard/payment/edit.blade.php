@@ -53,10 +53,10 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <button type="submit"
-                                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">Perbaharui</button>
+                                class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">Perbaharui</button>
 
                             <a href="{{ route('dashboard.payment.index') }}"
-                                class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
+                                class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
                                 Batal
                             </a>
                         </div>

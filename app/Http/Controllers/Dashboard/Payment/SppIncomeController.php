@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard\Payment;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
-use App\Models\User;
+use App\Http\Requests\SppIncomeRequest;
+use App\Models\SppIncome;
+use App\Models\StudentPayment;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class UserController extends Controller
+class SppIncomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,21 +19,19 @@ class UserController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = User::where('roles', '!=', 'ADMIN')->get();
+            $query = SppIncome::where('name', '!=', '')->get();
 
             return DataTables::of($query)
-                ->addColumn('action', function ($item) {
-                    return '
-                        <a class="inline-block border border-sky-500 bg-sky-500 text-white rounded-md px-4 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-sky-800 focus:outline-none focus:shadow-outline"
-                            href="' . route('dashboard.user.edit', $item->id) . '">
-                            Edit
-                        </a>
-                    ';
+                ->editColumn('price', function ($item) {
+                    return number_format($item->price);
+                })
+                ->editColumn('created_at', function ($item) {
+                    return date_format($item->created_at, 'd F Y - H:i');
                 })
                 ->rawColumns(['action'])
                 ->make();
         }
-        return view('pages.dashboard.user.index');
+        return view('pages.dashboard.spp.index');
     }
 
     /**
@@ -42,7 +41,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $studentPayment = StudentPayment::all();
+
+        return view('pages.dashboard.spp.create', compact('studentPayment'));
     }
 
     /**
@@ -51,18 +52,21 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(SppIncomeRequest $request)
     {
-        //
+        $data = $request->all();
+        SppIncome::create($data);
+
+        return redirect()->route('dashboard.sppincome.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\SppIncome  $sppIncome
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(SppIncome $sppIncome)
     {
         //
     }
@@ -70,36 +74,33 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\SppIncome  $sppIncome
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(SppIncome $sppIncome)
     {
-        return view('pages.dashboard.user.edit', compact('user'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\SppIncome  $sppIncome
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, User $user)
+    public function update(Request $request, SppIncome $sppIncome)
     {
-        $data = $request->all();
-        $user->update($data);
-
-        return redirect()->route('dashboard.user.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\SppIncome  $sppIncome
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(SppIncome $sppIncome)
     {
         //
     }

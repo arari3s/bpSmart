@@ -3,9 +3,13 @@
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Payment\ClassroomController;
 use App\Http\Controllers\Dashboard\Payment\PaymentController;
+use App\Http\Controllers\Dashboard\Payment\SppExpenditureController;
+use App\Http\Controllers\Dashboard\Payment\SppIncomeController;
 use App\Http\Controllers\Dashboard\Payment\StudentClassroomController;
 use App\Http\Controllers\Dashboard\Payment\StudentController;
 use App\Http\Controllers\Dashboard\Payment\StudentPaymentController;
+use App\Http\Controllers\Dashboard\Payment\ThirdIncomeController;
+use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +34,8 @@ Route::middleware(['auth:sanctum', 'verified'])
         Route::get('/', [DashboardController::class, 'index'])->name('index');
 
         Route::middleware(['admin'])->group(function () {
+            // user
+            Route::resource('user', UserController::class);
             // classroom
             Route::resource('classroom', ClassroomController::class);
             // student
@@ -40,5 +46,11 @@ Route::middleware(['auth:sanctum', 'verified'])
             Route::resource('classroom.student-classroom', StudentClassroomController::class)->shallow();
             // student_payment
             Route::resource('student-classroom.student-payment', StudentPaymentController::class)->shallow();
+            // spp income
+            Route::resource('sppincome', SppIncomeController::class);
+            // third income
+            Route::resource('thirdincome', ThirdIncomeController::class);
+            // spp expenditure
+            Route::resource('sppexpenditure', SppExpenditureController::class);
         });
     });

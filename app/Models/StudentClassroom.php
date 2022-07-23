@@ -19,4 +19,10 @@ class StudentClassroom extends Model
     {
         return $this->belongsTo(Student::class, 'students_id', 'id');
     }
+
+    // relationships one to many classroom to student_classroom
+    public function classroom()
+    {
+        return $this->belongsTo(Classroom::class, 'classrooms_id', 'id');
+    }
 }

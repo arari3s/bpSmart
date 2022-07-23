@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard\Payment;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
-use App\Models\User;
+use App\Http\Requests\SppIncomeRequest;
+use App\Models\SppIncome;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class UserController extends Controller
+class ThirdIncomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,21 +18,20 @@ class UserController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = User::where('roles', '!=', 'ADMIN')->get();
+            $query = SppIncome::where('name', '=', null)->get();
+            // $query = SppIncome::query();
 
             return DataTables::of($query)
-                ->addColumn('action', function ($item) {
-                    return '
-                        <a class="inline-block border border-sky-500 bg-sky-500 text-white rounded-md px-4 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-sky-800 focus:outline-none focus:shadow-outline"
-                            href="' . route('dashboard.user.edit', $item->id) . '">
-                            Edit
-                        </a>
-                    ';
+                ->editColumn('price', function ($item) {
+                    return number_format($item->price);
+                })
+                ->editColumn('created_at', function ($item) {
+                    return date_format($item->created_at, 'd F Y - H:i');
                 })
                 ->rawColumns(['action'])
                 ->make();
         }
-        return view('pages.dashboard.user.index');
+        return view('pages.dashboard.thirdIncome.index');
     }
 
     /**
@@ -42,7 +41,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.dashboard.thirdIncome.create');
     }
 
     /**
@@ -51,9 +50,12 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(SppIncomeRequest $request)
     {
-        //
+        $data = $request->all();
+        SppIncome::create($data);
+
+        return redirect()->route('dashboard.thirdincome.index');
     }
 
     /**
@@ -73,9 +75,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        return view('pages.dashboard.user.edit', compact('user'));
+        //
     }
 
     /**
@@ -85,12 +87,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, User $user)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $user->update($data);
-
-        return redirect()->route('dashboard.user.index');
+        //
     }
 
     /**

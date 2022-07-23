@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Kelas') }}
+            {{ __('Pemasukan Pihak ke Tiga') }}
         </h2>
     </x-slot>
 
@@ -18,32 +18,32 @@
                         width: '5%'
                     },
                     {
-                        data: 'name',
-                        name: 'name'
+                        data: 'noted',
+                        name: 'noted'
                     },
                     {
-                        data: 'department',
-                        name: 'department'
+                        data: 'price',
+                        name: 'price'
                     },
                     {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
-                        width: '20%'
-                    }
+                        data: 'officer',
+                        name: 'officer'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at'
+                    },
                 ]
             })
         </script>
     </x-slot>
 
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10">
-                <a href="{{ route('dashboard.classroom.create') }}"
+                <a href="{{ route('dashboard.thirdincome.create') }}"
                     class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">
-                    + Tambah Kelas
+                    + Tambah Pemasukan
                 </a>
             </div>
             <div class="shadow overflow-hidden sm-rounded-md">
@@ -52,9 +52,10 @@
                         <thead class="text-left">
                             <tr>
                                 <th>ID</th>
-                                <th>Nama</th>
-                                <th>Jurusan</th>
-                                <th>Aksi</th>
+                                <th>Uraian</th>
+                                <th>Besarnya</th>
+                                <th>Petugas</th>
+                                <th>Ket Input</th>
                             </tr>
                         </thead>
                         <tbody></tbody>

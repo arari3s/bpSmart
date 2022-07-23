@@ -24,16 +24,16 @@ class StudentPaymentController extends Controller
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
-                        <a class="inline-block border border-blue-700 bg-blue-700 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-blue-800 focus:outline-none focus:shadow-outline"
+                        <a class="inline-block border border-amber-500 bg-amber-500 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-amber-800 focus:outline-none focus:shadow-outline"
                             href="' . route('dashboard.student-payment.show', $item->id) . '">
                             Show
                         </a>
-                        <a class="inline-block border border-gray-700 bg-gray-700 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                        <a class="inline-block border border-sky-500 bg-sky-500 text-white rounded-md px-4 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-sky-800 focus:outline-none focus:shadow-outline"
                             href="' . route('dashboard.student-payment.edit', $item->id) . '">
                             Edit
                         </a>
                         <form class="inline-block" action="' . route('dashboard.student-payment.destroy', $item->id) . '" method="POST">
-                            <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline" >
+                            <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-red-800 focus:outline-none focus:shadow-outline" >
                                 Hapus
                             </button>
                             ' . method_field('delete') . csrf_field() . '

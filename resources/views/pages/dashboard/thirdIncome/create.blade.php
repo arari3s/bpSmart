@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Pembayaran &raquo; Tambah Pembayaran
+            Pihak ke Tiga &raquo; Tambah Pembayaran
         </h2>
     </x-slot>
 
@@ -26,19 +26,29 @@
                     </div>
                 @endif
 
-                <form action="{{ route('dashboard.payment.store') }}" class="w-full" method="POST"
+                <form action="{{ route('dashboard.thirdincome.store') }}" class="w-full" method="POST"
                     enctype="multipart/form-data">
                     @csrf
-                    <div class="flex flex-wrap -mx-3 mb-6">
+                    {{-- start hidden --}}
+                    <div class="flex-wrap -mx-3 mb-6 hidden">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nama <span
-                                    class="text-red-500">*</span></label>
-                            <input value="{{ old('name') }}" name="name"
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Petugas
+                                <span class="text-red-500">*</span></label>
+                            <input value="{{ Auth::user()->name }}" name="officer"
                                 class="appearance-none block w-full lg:w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                type="text" placeholder="Nama pembayaran">
+                                type="text" placeholder="Nama petugas">
                         </div>
                     </div>
-
+                    {{-- end hidden --}}
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Uraian
+                                <span class="text-red-500">*</span></label>
+                            <input value="{{ old('noted') }}" name="noted"
+                                class="appearance-none block w-full lg:w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                type="text" placeholder="Tambahkan uraian pembayaran">
+                        </div>
+                    </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Besarnya
@@ -54,7 +64,7 @@
                             <button type="submit"
                                 class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">Simpan</button>
 
-                            <a href="{{ route('dashboard.payment.index') }}"
+                            <a href="{{ route('dashboard.thirdincome.index') }}"
                                 class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
                                 Batal
                             </a>

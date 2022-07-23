@@ -10,7 +10,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10">
                 <a href="{{ url()->previous() }}"
-                    class="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded shadow-lg">
+                    class="bg-indigo-500 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded shadow-lg">
                     Kembali
                 </a>
             </div>

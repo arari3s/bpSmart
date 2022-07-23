@@ -73,6 +73,10 @@ class PaymentSeeder extends Seeder
                 'price' => '300000',
             ],
             [
+                'name' => 'TABUNGAN UJIAN 2022/2023',
+                'price' => '20000',
+            ],
+            [
                 'name' => 'LUNAS',
                 'price' => '0',
             ],

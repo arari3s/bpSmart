@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Kelas') }}
+            {{ __('User') }}
         </h2>
     </x-slot>
 
@@ -22,8 +22,8 @@
                         name: 'name'
                     },
                     {
-                        data: 'department',
-                        name: 'department'
+                        data: 'roles',
+                        name: 'roles'
                     },
                     {
                         data: 'action',
@@ -40,12 +40,12 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-10">
+            {{-- <div class="mb-10">
                 <a href="{{ route('dashboard.classroom.create') }}"
-                    class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
                     + Tambah Kelas
                 </a>
-            </div>
+            </div> --}}
             <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
                     <table id="crudTable">
@@ -53,7 +53,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
-                                <th>Jurusan</th>
+                                <th>Role</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
