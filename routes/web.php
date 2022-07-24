@@ -3,6 +3,10 @@
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Payment\ClassroomController;
 use App\Http\Controllers\Dashboard\Payment\PaymentController;
+use App\Http\Controllers\Dashboard\Payment\Report\SppReportController;
+use App\Http\Controllers\Dashboard\Payment\SaranaExpenditureController;
+use App\Http\Controllers\Dashboard\Payment\SaranaIncomeController;
+use App\Http\Controllers\Dashboard\Payment\SaranaIncomeThirdController;
 use App\Http\Controllers\Dashboard\Payment\SppExpenditureController;
 use App\Http\Controllers\Dashboard\Payment\SppIncomeController;
 use App\Http\Controllers\Dashboard\Payment\StudentClassroomController;
@@ -52,5 +56,19 @@ Route::middleware(['auth:sanctum', 'verified'])
             Route::resource('thirdincome', ThirdIncomeController::class);
             // spp expenditure
             Route::resource('sppexpenditure', SppExpenditureController::class);
+            // sarana income
+            Route::resource('saranaincome', SaranaIncomeController::class);
+            // sarana income third
+            Route::resource('saranaincomethird', SaranaIncomeThirdController::class);
+            // sarana expenditure
+            Route::resource('saranaexpenditure', SaranaExpenditureController::class);
+            // spp income report
+            route::get('sppincomereport', [SppReportController::class, 'sppincomereport'])->name('sppincomereport');
+            // spp income report print
+            route::get('sppincomereport/report', [SppReportController::class, 'incomeprint'])->name('incomeprint');
+            // spp expenditure report
+            route::get('sppexpenditurereport', [SppReportController::class, 'sppexpenditurereport'])->name('sppexpenditurereport');
+            // spp expenditure report print
+            route::get('sppexpenditurereport/report', [SppReportController::class, 'expenditureprint'])->name('expenditureprint');
         });
     });

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pemasukan SPP') }}
+            {{ __('Pemasukan Sarana') }}
         </h2>
     </x-slot>
 
@@ -20,10 +20,6 @@
                     {
                         data: 'name',
                         name: 'name'
-                    },
-                    {
-                        data: 'mount',
-                        name: 'mount'
                     },
                     {
                         data: 'price',
@@ -49,7 +45,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10">
-                <a href="{{ route('dashboard.sppincome.create') }}"
+                <a href="{{ route('dashboard.saranaincome.create') }}"
                     class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">
                     + Tambah Pembayaran
                 </a>
@@ -61,7 +57,6 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
-                                <th>Bulan</th>
                                 <th>Besarnya</th>
                                 <th>Petugas</th>
                                 <th>Ket Input</th>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pemasukan SPP') }}
+            {{ __('Pengeluaran Sarana') }}
         </h2>
     </x-slot>
 
@@ -22,10 +22,6 @@
                         name: 'name'
                     },
                     {
-                        data: 'mount',
-                        name: 'mount'
-                    },
-                    {
                         data: 'price',
                         name: 'price'
                     },
@@ -37,10 +33,6 @@
                         data: 'created_at',
                         name: 'created_at'
                     },
-                    {
-                        data: 'status',
-                        name: 'status'
-                    },
                 ]
             })
         </script>
@@ -49,9 +41,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10">
-                <a href="{{ route('dashboard.sppincome.create') }}"
+                <a href="{{ route('dashboard.saranaexpenditure.create') }}"
                     class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">
-                    + Tambah Pembayaran
+                    + Tambah Pengeluaran
                 </a>
             </div>
             <div class="shadow overflow-hidden sm-rounded-md">
@@ -60,12 +52,10 @@
                         <thead class="text-left">
                             <tr>
                                 <th>ID</th>
-                                <th>Nama</th>
-                                <th>Bulan</th>
+                                <th>Uraian</th>
                                 <th>Besarnya</th>
                                 <th>Petugas</th>
                                 <th>Ket Input</th>
-                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody></tbody>

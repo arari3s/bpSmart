@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Dashboard\Payment;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SppIncomeRequest;
-use App\Models\SppIncome;
+use App\Http\Requests\SaranaIncomeRequest;
+use App\Models\SaranaIncome;
 use App\Models\StudentPayment;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class SppIncomeController extends Controller
+class SaranaIncomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class SppIncomeController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = SppIncome::where('name', '!=', '')->get();
+            $query = SaranaIncome::where('name', '!=', '')->get();
 
             return DataTables::of($query)
                 ->editColumn('price', function ($item) {
@@ -34,7 +34,7 @@ class SppIncomeController extends Controller
                 ->rawColumns(['action'])
                 ->make();
         }
-        return view('pages.dashboard.spp.index');
+        return view('pages.dashboard.sarana.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class SppIncomeController extends Controller
     {
         $studentPayment = StudentPayment::all();
 
-        return view('pages.dashboard.spp.create', compact('studentPayment'));
+        return view('pages.dashboard.sarana.create', compact('studentPayment'));
     }
 
     /**
@@ -55,21 +55,21 @@ class SppIncomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SppIncomeRequest $request)
+    public function store(SaranaIncomeRequest $request)
     {
         $data = $request->all();
-        SppIncome::create($data);
+        SaranaIncome::create($data);
 
-        return redirect()->route('dashboard.sppincome.index');
+        return redirect()->route('dashboard.saranaincome.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SppIncome  $sppIncome
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SppIncome $sppIncome)
+    public function show($id)
     {
         //
     }
@@ -77,10 +77,10 @@ class SppIncomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SppIncome  $sppIncome
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SppIncome $sppIncome)
+    public function edit($id)
     {
         //
     }
@@ -89,10 +89,10 @@ class SppIncomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SppIncome  $sppIncome
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SppIncome $sppIncome)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -100,10 +100,10 @@ class SppIncomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SppIncome  $sppIncome
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SppIncome $sppIncome)
+    public function destroy($id)
     {
         //
     }
