@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Payment\ClassroomController;
 use App\Http\Controllers\Dashboard\Payment\DuExpenditureController;
 use App\Http\Controllers\Dashboard\Payment\DuIncomeController;
+use App\Http\Controllers\Dashboard\Payment\Import\ImportController;
 use App\Http\Controllers\Dashboard\Payment\PaymentController;
 use App\Http\Controllers\Dashboard\Payment\Report\SppReportController;
 use App\Http\Controllers\Dashboard\Payment\SaranaExpenditureController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Dashboard\Payment\TabunganExpenditureController;
 use App\Http\Controllers\Dashboard\Payment\TabunganIncomeController;
 use App\Http\Controllers\Dashboard\Payment\ThirdIncomeController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Landing\LandingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +33,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('ppdb', [LandingController::class, 'ppdb'])->name('ppdb.landing');
+Route::get('contact', [LandingController::class, 'contact'])->name('contact.landing');
+Route::get('blog', [LandingController::class, 'blog'])->name('blog.landing');
+Route::get('profile', [LandingController::class, 'profile'])->name('profile.landing');
+Route::get('/', [LandingController::class, 'index'])->name('index');
 
 Route::middleware(['auth:sanctum', 'verified'])
     ->name('dashboard.')
@@ -87,5 +95,9 @@ Route::middleware(['auth:sanctum', 'verified'])
             Route::resource('tabunganincome', TabunganIncomeController::class);
             // tabungan expenditure
             Route::resource('tabunganexpenditure', TabunganExpenditureController::class);
+
+            // student import
+            Route::get('studentimport', [ImportController::class, 'studentimport'])->name('student.import');
+            Route::post('studentimportvalidate', [ImportController::class, 'studentimportvalidate'])->name('student.import.validate');
         });
     });

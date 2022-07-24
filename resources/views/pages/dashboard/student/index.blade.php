@@ -56,6 +56,11 @@
                     class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">
                     + Tambah Siswa
                 </a>
+
+                <a href="{{ route('dashboard.student.import') }}"
+                    class="bg-orange-500 hover:bg-orange-800 text-white font-bold py-2 px-4 rounded shadow-lg ml-4">
+                    Import Siswa
+                </a>
             </div>
             <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
