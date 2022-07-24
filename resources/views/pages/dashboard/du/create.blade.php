@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Pemasukan SPP &raquo; Tambah Pembayaran
+            Pemasukan Daftar Ulang &raquo; Tambah Pembayaran
         </h2>
     </x-slot>
 
@@ -36,7 +36,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('dashboard.sppincome.store') }}" class="w-full" method="POST"
+                <form action="{{ route('dashboard.duincome.store') }}" class="w-full" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     {{-- start hidden --}}
@@ -50,45 +50,24 @@
                         </div>
                     </div>
                     {{-- end hidden --}}
-                    <div class="flex flex-wrap -mx-3">
+                    <div class="flex flex-wrap -mx-3 mb-4">
                         <div class="w-full px-3 py-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nama <span
                                     class="text-red-500">*</span></label>
                             <select class="select2" data-width="50%" name="name" required>
                                 <option value disabled selected>-- pilih nama siswa --</option>
                                 @foreach ($studentPayment as $item)
-                                    @if ($item->spp_id == '' || $item->spp_id == 0)
+                                    @if ($item->du_id == '' || $item->du_id == 0)
                                         tidak ada tagina
                                     @else
                                         <option
                                             value="{{ $item->studentclassroom->student->name }} - {{ $item->studentclassroom->classroom->name }}">
                                             {{ $item->studentclassroom->student->name }} -
                                             {{ $item->studentclassroom->classroom->name }} -
-                                            {{ number_format($item->spp->price) }}
+                                            {{ number_format($item->du->price) }}
                                         </option>
                                     @endif
                                 @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap -mx-3 mb-3">
-                        <div class="w-full px-3 py-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Bulan
-                                <span class="text-red-500">*</span></label>
-                            <select class="select2" data-width="50%" name="mount" required>
-                                <option value disabled selected>-- pilih bulan pembayaran --</option>
-                                <option value="JULI">JULI</option>
-                                <option value="AGUSTUS">AGUSTUS</option>
-                                <option value="SEPTEMBER">SEPTEMBER</option>
-                                <option value="OKTOBER">OKTOBER</option>
-                                <option value="NOVEMBER">NOVEMBER</option>
-                                <option value="DESEMBER">DESEMBER</option>
-                                <option value="JANUARI">JANUARI</option>
-                                <option value="FEBRUARI">FEBRUARI</option>
-                                <option value="MARET">MARET</option>
-                                <option value="APRIL">APRIL</option>
-                                <option value="MEI">MEI</option>
-                                <option value="JUNI">JUNI</option>
                             </select>
                         </div>
                     </div>

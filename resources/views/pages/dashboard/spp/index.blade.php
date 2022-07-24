@@ -51,7 +51,7 @@
             <div class="mb-10">
                 <a href="{{ route('dashboard.sppincome.create') }}"
                     class="bg-teal-500 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded shadow-lg">
-                    + Tambah Pembayaran
+                    + Tambah Pemasukan
                 </a>
             </div>
             <div class="shadow overflow-hidden sm-rounded-md">
