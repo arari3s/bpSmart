@@ -19,6 +19,16 @@ class IsAdmin
     {
         if (Auth::user() && Auth::user()->roles == "ADMIN") {
             return $next($request);
+        } else if (Auth::user() && Auth::user()->roles == "BENDAHARA_SPP") {
+            return $next($request);
+        } else if (Auth::user() && Auth::user()->roles == "BENDAHARA_DU") {
+            return $next($request);
+        } else if (Auth::user() && Auth::user()->roles == "BENDAHARA_KI") {
+            return $next($request);
+        } else if (Auth::user() && Auth::user()->roles == "BENDAHARA_SARANA") {
+            return $next($request);
+        } else if (Auth::user() && Auth::user()->roles == "BENDAHARA_TABUNGAN") {
+            return $next($request);
         }
         return redirect("/");
     }

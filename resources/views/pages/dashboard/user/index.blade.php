@@ -22,6 +22,10 @@
                         name: 'name'
                     },
                     {
+                        data: 'email',
+                        name: 'email'
+                    },
+                    {
                         data: 'roles',
                         name: 'roles'
                     },
@@ -53,6 +57,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
+                                <th>Email</th>
                                 <th>Role</th>
                                 <th>Aksi</th>
                             </tr>

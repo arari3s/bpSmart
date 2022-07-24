@@ -257,6 +257,216 @@
                                 </x-jet-dropdown>
                             </div>
                         </div>
+                    @elseif (Auth::user()->roles == 'BENDAHARA_SPP')
+                        {{-- pemasukan --}}
+                        <x-jet-nav-link href="{{ route('dashboard.sppincome.index') }}" :active="request()->routeIs('dashboard.sppincome.index') ||
+                            request()->routeIs('dashboard.sppincome.*')">
+                            {{ __('Pemasukan SPP') }}
+                        </x-jet-nav-link>
+                        {{-- pemasukan --}}
+                        <x-jet-nav-link href="{{ route('dashboard.thirdincome.index') }}" :active="request()->routeIs('dashboard.thirdincome.index') ||
+                            request()->routeIs('dashboard.thirdincome.*')">
+                            {{ __('Pemasukan Pihak ke Tiga') }}
+                        </x-jet-nav-link>
+                        {{-- pengeluaran --}}
+                        <x-jet-nav-link href="{{ route('dashboard.sppexpenditure.index') }}" :active="request()->routeIs('dashboard.sppexpenditure.index') ||
+                            request()->routeIs('dashboard.sppexpenditure.*')">
+                            {{ __('Pengeluaran SPP') }}
+                        </x-jet-nav-link>
+
+                        {{-- report --}}
+                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <!-- Settings Dropdown -->
+                            <div class="relative">
+                                <x-jet-dropdown align="right" width="48">
+                                    <x-slot name="trigger">
+                                        <span class="inline-flex rounded-md">
+                                            <button type="button"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                {{ __('Laporan') }}
+
+                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </x-slot>
+
+                                    <x-slot name="content">
+                                        <!-- Account Management -->
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            {{ __('Laporan') }}
+                                        </div>
+
+                                        <x-jet-dropdown-link href="{{ route('dashboard.sppincomereport') }}">
+                                            {{ __('Pemasukan') }}
+                                        </x-jet-dropdown-link>
+
+                                        <x-jet-dropdown-link href="{{ route('dashboard.sppexpenditurereport') }}">
+                                            {{ __('Pengeluaran') }}
+                                        </x-jet-dropdown-link>
+                                    </x-slot>
+                                </x-jet-dropdown>
+                            </div>
+                        </div>
+                    @elseif (Auth::user()->roles == 'BENDAHARA_SARANA')
+                        {{-- pemasukan --}}
+                        <x-jet-nav-link href="{{ route('dashboard.saranaincome.index') }}" :active="request()->routeIs('dashboard.saranaincome.index') ||
+                            request()->routeIs('dashboard.saranaincome.*')">
+                            {{ __('Pemasukan Sarana') }}
+                        </x-jet-nav-link>
+                        {{-- pemasukan --}}
+                        <x-jet-nav-link href="{{ route('dashboard.saranaincomethird.index') }}" :active="request()->routeIs('dashboard.saranaincomethird.index') ||
+                            request()->routeIs('dashboard.saranaincomethird.*')">
+                            {{ __('Pemasukan Pihak ke Tiga') }}
+                        </x-jet-nav-link>
+                        {{-- pengeluaran --}}
+                        <x-jet-nav-link href="{{ route('dashboard.saranaexpenditure.index') }}" :active="request()->routeIs('dashboard.saranaexpenditure.index') ||
+                            request()->routeIs('dashboard.saranaexpenditure.*')">
+                            {{ __('Pengeluaran Sarana') }}
+                        </x-jet-nav-link>
+
+                        {{-- report --}}
+                        {{-- <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <!-- Settings Dropdown -->
+                            <div class="relative">
+                                <x-jet-dropdown align="right" width="48">
+                                    <x-slot name="trigger">
+                                        <span class="inline-flex rounded-md">
+                                            <button type="button"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                {{ __('Laporan') }}
+
+                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </x-slot>
+
+                                    <x-slot name="content">
+                                        <!-- Account Management -->
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            {{ __('Laporan') }}
+                                        </div>
+
+                                        <x-jet-dropdown-link href="{{ route('dashboard.sppincomereport') }}">
+                                            {{ __('Pemasukan') }}
+                                        </x-jet-dropdown-link>
+
+                                        <x-jet-dropdown-link href="{{ route('dashboard.sppexpenditurereport') }}">
+                                            {{ __('Pengeluaran') }}
+                                        </x-jet-dropdown-link>
+                                    </x-slot>
+                                </x-jet-dropdown>
+                            </div>
+                        </div> --}}
+                    @elseif (Auth::user()->roles == 'BENDAHARA_DU')
+                        {{-- pemasukan --}}
+                        <x-jet-nav-link href="{{ route('dashboard.duincome.index') }}" :active="request()->routeIs('dashboard.duincome.index') ||
+                            request()->routeIs('dashboard.duincome.*')">
+                            {{ __('Pemasukan Daftar Ulang') }}
+                        </x-jet-nav-link>
+                        {{-- pengeluaran --}}
+                        <x-jet-nav-link href="{{ route('dashboard.duexpenditure.index') }}" :active="request()->routeIs('dashboard.duexpenditure.index') ||
+                            request()->routeIs('dashboard.duexpenditure.*')">
+                            {{ __('Pengeluaran Daftar Ulang') }}
+                        </x-jet-nav-link>
+
+                        {{-- report --}}
+                        {{-- <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <!-- Settings Dropdown -->
+                            <div class="relative">
+                                <x-jet-dropdown align="right" width="48">
+                                    <x-slot name="trigger">
+                                        <span class="inline-flex rounded-md">
+                                            <button type="button"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                {{ __('Laporan') }}
+
+                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </x-slot>
+
+                                    <x-slot name="content">
+                                        <!-- Account Management -->
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            {{ __('Laporan') }}
+                                        </div>
+
+                                        <x-jet-dropdown-link href="{{ route('dashboard.sppincomereport') }}">
+                                            {{ __('Pemasukan') }}
+                                        </x-jet-dropdown-link>
+
+                                        <x-jet-dropdown-link href="{{ route('dashboard.sppexpenditurereport') }}">
+                                            {{ __('Pengeluaran') }}
+                                        </x-jet-dropdown-link>
+                                    </x-slot>
+                                </x-jet-dropdown>
+                            </div>
+                        </div> --}}
+                    @elseif (Auth::user()->roles == 'BENDAHARA_TABUNGAN')
+                        {{-- pemasukan --}}
+                        <x-jet-nav-link href="{{ route('dashboard.tabunganincome.index') }}" :active="request()->routeIs('dashboard.tabunganincome.index') ||
+                            request()->routeIs('dashboard.tabunganincome.*')">
+                            {{ __('Pemasukan Tabungan Ujian') }}
+                        </x-jet-nav-link>
+                        {{-- pengeluaran --}}
+                        <x-jet-nav-link href="{{ route('dashboard.tabunganexpenditure.index') }}" :active="request()->routeIs('dashboard.tabunganexpenditure.index') ||
+                            request()->routeIs('dashboard.tabunganexpenditure.*')">
+                            {{ __('Pengeluaran Tabungan Ujian') }}
+                        </x-jet-nav-link>
+
+                        {{-- report --}}
+                        {{-- <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <!-- Settings Dropdown -->
+                            <div class="relative">
+                                <x-jet-dropdown align="right" width="48">
+                                    <x-slot name="trigger">
+                                        <span class="inline-flex rounded-md">
+                                            <button type="button"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                {{ __('Laporan') }}
+
+                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </x-slot>
+
+                                    <x-slot name="content">
+                                        <!-- Account Management -->
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            {{ __('Laporan') }}
+                                        </div>
+
+                                        <x-jet-dropdown-link href="{{ route('dashboard.sppincomereport') }}">
+                                            {{ __('Pemasukan') }}
+                                        </x-jet-dropdown-link>
+
+                                        <x-jet-dropdown-link href="{{ route('dashboard.sppexpenditurereport') }}">
+                                            {{ __('Pengeluaran') }}
+                                        </x-jet-dropdown-link>
+                                    </x-slot>
+                                </x-jet-dropdown>
+                            </div>
+                        </div> --}}
                     @endif
                 </div>
             </div>
