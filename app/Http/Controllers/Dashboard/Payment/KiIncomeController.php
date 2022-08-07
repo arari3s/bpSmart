@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Dashboard\Payment;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\DuIncomeRequest;
-use App\Models\DuIncome;
+use App\Http\Requests\KiIncomeRequest;
+use App\Models\KiIncome;
 use App\Models\StudentPayment;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class DuIncomeController extends Controller
+class KiIncomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class DuIncomeController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = DuIncome::query();
+            $query = KiIncome::query();
 
             return DataTables::of($query)
                 ->editColumn('price', function ($item) {
@@ -34,7 +34,7 @@ class DuIncomeController extends Controller
                 ->rawColumns(['action'])
                 ->make();
         }
-        return view('pages.dashboard.du.index');
+        return view('pages.dashboard.ki.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class DuIncomeController extends Controller
     {
         $studentPayment = StudentPayment::all();
 
-        return view('pages.dashboard.du.create', compact('studentPayment'));
+        return view('pages.dashboard.ki.create', compact('studentPayment'));
     }
 
     /**
@@ -55,12 +55,12 @@ class DuIncomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DuIncomeRequest $request)
+    public function store(KiIncomeRequest $request)
     {
         $data = $request->all();
-        DuIncome::create($data);
+        KiIncome::create($data);
 
-        return redirect()->route('dashboard.duincome.index');
+        return redirect()->route('dashboard.kiincome.index');
     }
 
     /**

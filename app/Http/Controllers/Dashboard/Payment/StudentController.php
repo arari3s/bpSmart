@@ -68,7 +68,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -105,6 +105,6 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return abort(404);
     }
 }

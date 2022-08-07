@@ -71,7 +71,7 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -108,6 +108,6 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return abort(404);
     }
 }

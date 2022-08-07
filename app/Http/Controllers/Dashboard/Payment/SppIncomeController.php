@@ -71,7 +71,7 @@ class SppIncomeController extends Controller
      */
     public function show(SppIncome $sppIncome)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -82,7 +82,7 @@ class SppIncomeController extends Controller
      */
     public function edit(SppIncome $sppIncome)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -94,7 +94,7 @@ class SppIncomeController extends Controller
      */
     public function update(Request $request, SppIncome $sppIncome)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -105,6 +105,6 @@ class SppIncomeController extends Controller
      */
     public function destroy(SppIncome $sppIncome)
     {
-        //
+        return abort(404);
     }
 }

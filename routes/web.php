@@ -5,6 +5,8 @@ use App\Http\Controllers\Dashboard\Payment\ClassroomController;
 use App\Http\Controllers\Dashboard\Payment\DuExpenditureController;
 use App\Http\Controllers\Dashboard\Payment\DuIncomeController;
 use App\Http\Controllers\Dashboard\Payment\Import\ImportController;
+use App\Http\Controllers\Dashboard\Payment\KiExpenditureController;
+use App\Http\Controllers\Dashboard\Payment\KiIncomeController;
 use App\Http\Controllers\Dashboard\Payment\PaymentController;
 use App\Http\Controllers\Dashboard\Payment\Report\SppReportController;
 use App\Http\Controllers\Dashboard\Payment\SaranaExpenditureController;
@@ -95,6 +97,12 @@ Route::middleware(['auth:sanctum', 'verified'])
             Route::resource('tabunganincome', TabunganIncomeController::class);
             // tabungan expenditure
             Route::resource('tabunganexpenditure', TabunganExpenditureController::class);
+
+            // ki income
+            Route::resource('kiincome', KiIncomeController::class);
+            // ki expenditure
+            Route::resource('kiexpenditure', KiExpenditureController::class);
+
 
             // student import
             Route::get('studentimport', [ImportController::class, 'studentimport'])->name('student.import');

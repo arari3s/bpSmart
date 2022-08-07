@@ -83,7 +83,7 @@ class StudentClassroomController extends Controller
      */
     public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -94,7 +94,7 @@ class StudentClassroomController extends Controller
      */
     public function edit($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -106,7 +106,7 @@ class StudentClassroomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return abort(404);
     }
 
     /**
