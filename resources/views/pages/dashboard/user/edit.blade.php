@@ -43,6 +43,7 @@
                                 <option value="BENDAHARA_KI">BENDAHARA KI</option>
                                 <option value="BENDAHARA_SARANA">BENDAHARA SARANA</option>
                                 <option value="BENDAHARA_TABUNGAN">BENDAHARA TABUNGAN</option>
+                                <option value="USER">USER</option>
                             </select>
                         </div>
                     </div>
