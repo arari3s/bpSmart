@@ -107,5 +107,9 @@ Route::middleware(['auth:sanctum', 'verified'])
             // student import
             Route::get('studentimport', [ImportController::class, 'studentimport'])->name('student.import');
             Route::post('studentimportvalidate', [ImportController::class, 'studentimportvalidate'])->name('student.import.validate');
+
+            // user import
+            Route::get('userimport', [ImportController::class, 'userimport'])->name('user.import');
+            Route::post('userimportvalidate', [ImportController::class, 'userimportvalidate'])->name('user.import.validate');
         });
     });

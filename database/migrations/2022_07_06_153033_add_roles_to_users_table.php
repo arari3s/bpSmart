@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->bigInteger('students_id')->after('id')->nullable();
+            $table->bigInteger('student_classrooms_id')->after('id')->nullable();
             $table->string('roles')->after('email')->default('USER');
+
+            $table->softDeletes()->after('profile_photo_path');
         });
     }
 

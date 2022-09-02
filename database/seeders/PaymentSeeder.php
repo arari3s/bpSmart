@@ -80,6 +80,22 @@ class PaymentSeeder extends Seeder
                 'name' => 'LUNAS',
                 'price' => '0',
             ],
+            [
+                'name' => 'SPP X 2022/2023',
+                'price' => '145000',
+            ],
+            [
+                'name' => 'SARANA 2022/2023',
+                'price' => '1250000',
+            ],
+            [
+                'name' => 'SARANA 2022/2023 BP',
+                'price' => '625000',
+            ],
+            [
+                'name' => 'KUNJUNGAN INDUSTRI 2022',
+                'price' => '850000',
+            ],
         ];
 
         DB::table('payments')->insert($payment);

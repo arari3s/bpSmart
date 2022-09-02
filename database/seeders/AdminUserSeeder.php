@@ -19,13 +19,13 @@ class AdminUserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Super Admin',
-                'email' => 'superadmin@gmail.com',
+                'email' => 'superadmin@smkbhaktiprajamargasari.sch.id',
                 'roles' => 'ADMIN',
                 'password' => Hash::make('bismillah'),
             ],
             [
                 'name' => 'Admin',
-                'email' => 'admin@gmail.com',
+                'email' => 'admin@smkbhaktiprajamargasari.sch.id',
                 'roles' => 'ADMIN',
                 'password' => Hash::make('bismillah'),
             ],

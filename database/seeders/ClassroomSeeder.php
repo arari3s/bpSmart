@@ -17,20 +17,20 @@ class ClassroomSeeder extends Seeder
     {
         $classrooms = [
             [
-                'name' => 'X MM1',
-                'department' => 'MULTIMEDIA',
+                'name' => 'X DKV1',
+                'department' => 'DESAIN KOMUNIKASI VISUAL',
             ],
             [
-                'name' => 'X MM2',
-                'department' => 'MULTIMEDIA',
+                'name' => 'X DKV2',
+                'department' => 'DESAIN KOMUNIKASI VISUAL',
             ],
             [
-                'name' => 'X MM3',
-                'department' => 'MULTIMEDIA',
+                'name' => 'X DKV3',
+                'department' => 'DESAIN KOMUNIKASI VISUAL',
             ],
             [
-                'name' => 'X MM4',
-                'department' => 'MULTIMEDIA',
+                'name' => 'X DKV4',
+                'department' => 'DESAIN KOMUNIKASI VISUAL',
             ],
             [
                 'name' => 'X AKL1',

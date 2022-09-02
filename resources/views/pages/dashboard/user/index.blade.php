@@ -41,15 +41,19 @@
         </script>
     </x-slot>
 
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {{-- <div class="mb-10">
-                <a href="{{ route('dashboard.classroom.create') }}"
+            <div class="mb-10">
+                {{-- <a href="{{ route('dashboard.classroom.create') }}"
                     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
                     + Tambah Kelas
+                </a> --}}
+
+                <a href="{{ route('dashboard.user.import') }}"
+                    class="bg-orange-500 hover:bg-orange-800 text-white font-bold py-2 px-4 rounded shadow-lg">
+                    Import User
                 </a>
-            </div> --}}
+            </div>
             <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
                     <table id="crudTable">

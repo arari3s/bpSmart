@@ -27,6 +27,13 @@ class UserController extends Controller
                             href="' . route('dashboard.user.edit', $item->id) . '">
                             Edit
                         </a>
+
+                        <form class="inline-block" action="' . route('dashboard.user.destroy', $item->id) . '" method="POST">
+                            <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-red-800 focus:outline-none focus:shadow-outline" >
+                                Hapus
+                            </button>
+                            ' . method_field('delete') . csrf_field() . '
+                        </form>
                     ';
                 })
                 ->rawColumns(['action'])
@@ -99,8 +106,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        return abort(404);
+        $user->delete();
+
+        return redirect()->route('dashboard.user.index');
     }
 }
